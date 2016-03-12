@@ -14,8 +14,35 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Du har fået penge!"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
+        android:id="@+id/uGotMoneyTxt"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="75dp"
+        android:text="1000 kr"
+        android:id="@+id/moneyValTxt"
+        android:layout_below="@+id/uGotMoneyTxt"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Næste"
+        android:id="@+id/nxtBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/DK1000"
+        android:layout_below="@+id/moneyValTxt"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

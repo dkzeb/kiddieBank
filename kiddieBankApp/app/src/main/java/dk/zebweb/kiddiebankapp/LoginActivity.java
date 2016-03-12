@@ -69,8 +69,6 @@ public class LoginActivity extends AppCompatActivity {
                     public void onAuthenticated(AuthData authData) {
                         Log.d(TAG, "Logged in successful");
                         sessionManager.setLoginDetails(authData.getToken(), authData.getUid(), authData.getProvider());
-                        ref.child("users").child(authData.getUid()).child("name").setValue(emailString);
-                        ref.child("users").child(authData.getUid()).child("account").setValue(10000);
                         Toast.makeText(getApplicationContext(), "You are now logged in!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

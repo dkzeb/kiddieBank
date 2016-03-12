@@ -32,5 +32,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button parentBtn = (Button) findViewById(R.id.parentButton);
+        parentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), TransferMoneyActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

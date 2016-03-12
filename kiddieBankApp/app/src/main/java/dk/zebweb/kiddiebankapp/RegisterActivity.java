@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private EditText name;
     private EditText email;
     private EditText password;
     private EditText passwordVerify;
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        name = (EditText) findViewById(R.id.register_activity_edit_name);
         email = (EditText) findViewById(R.id.register_activity_edit_email);
         password = (EditText) findViewById(R.id.register_activity_edit_password);
         passwordVerify = (EditText) findViewById(R.id.register_activity_edit_password_verify);
@@ -54,7 +56,8 @@ public class RegisterActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String emailString = email.getText().toString();
+                final String nameString = name.getText().toString();
+                String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
                 String passwordVerifyString = passwordVerify.getText().toString();
 
@@ -63,14 +66,14 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
+                final Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
                 ref.createUser(emailString, passwordString, new Firebase.ValueResultHandler<Map<String, Object>>() {
 
                     @Override
                     public void onSuccess(Map<String, Object> result) {
                         Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                         NavUtils.navigateUpFromSameTask(activity);
-                        //result.get("uid")
+                        ref.child("users").child(result.get("uid")+"").setValue(new User(nameString, (int) (Math.random()*10000)));
                     }
 
                     @Override

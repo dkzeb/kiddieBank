@@ -16,7 +16,16 @@
         android:id="@+id/barnButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp" />
+        android:layout_marginTop="100dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forældre"
+        android:id="@+id/parentButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="175dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,5 +34,5 @@
         android:id="@+id/loginButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp" />
+        android:layout_marginTop="250dp" />
 </RelativeLayout>

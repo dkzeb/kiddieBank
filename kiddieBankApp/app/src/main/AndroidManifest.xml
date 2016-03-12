@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"
             android:launchMode="singleTop"
@@ -30,9 +30,11 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity"></meta-data>
+                android:value=".LoginActivity" />
         </activity>
-        <activity android:name=".TransferMoneyActivity"></activity>
+        <activity android:name=".TransferMoneyActivity" />
+        <activity android:name=".ChooseAmountActivity" />
+        <activity android:name=".ConfirmActivity"></activity>
     </application>
 
 </manifest>

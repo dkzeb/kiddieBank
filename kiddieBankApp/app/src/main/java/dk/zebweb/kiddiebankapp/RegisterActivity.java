@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onSuccess(Map<String, Object> result) {
                         Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                         NavUtils.navigateUpFromSameTask(activity);
-                        ref.child("users").child(result.get("uid")+"").setValue(new User(nameString, (int) (Math.random()*10000)));
+                        ref.child("users").child(result.get("uid")+"").setValue(new User(result.get("uid")+"", nameString, (int) (Math.random()*10000)));
                     }
 
                     @Override

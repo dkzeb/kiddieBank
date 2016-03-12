@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/DK1000"
+        android:src="@drawable/dk1000"
         android:layout_below="@+id/moneyValTxt"
         android:layout_centerHorizontal="true" />
 

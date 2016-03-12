@@ -14,12 +14,6 @@ public class youGotMoney extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_got_money);
-/*
-        ImageView moneyImage = (ImageView) findViewById(moneyImage);
-        if(moneyImage != null){
-            moneyImage.setImageDrawable("DK1000");
-        }
-*/
 
         Button nextBtn = (Button) findViewById(R.id.nxtBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {

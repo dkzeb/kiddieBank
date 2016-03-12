@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.Map;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText email;
@@ -52,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailString = email.getText().toString();
+                final String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
                 String passwordVerifyString = passwordVerify.getText().toString();
 
@@ -62,11 +64,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
-                ref.createUser(emailString, passwordString, new Firebase.ResultHandler() {
+                ref.createUser(emailString, passwordString, new Firebase.ValueResultHandler<Map<String, Object>>() {
+
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(Map<String, Object> result) {
                         Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                         NavUtils.navigateUpFromSameTask(activity);
+                        //result.get("uid")
                     }
 
                     @Override

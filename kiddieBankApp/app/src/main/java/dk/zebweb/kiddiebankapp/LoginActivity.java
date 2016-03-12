@@ -54,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
-                String emailString = email.getText().toString();
+                final Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
+                final String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
 
                 if (emailString.length() < 3 || passwordString.length() < 3){
@@ -64,10 +64,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 Log.d(TAG, "Attempting to log in");
                 ref.authWithPassword(emailString, passwordString, new Firebase.AuthResultHandler() {
+
                     @Override
                     public void onAuthenticated(AuthData authData) {
                         Log.d(TAG, "Logged in successful");
                         sessionManager.setLoginDetails(authData.getToken(), authData.getUid(), authData.getProvider());
+                        ref.child("users").child(authData.getUid()).child("name").setValue(emailString);
+                        ref.child("users").child(authData.getUid()).child("account").setValue(10000);
                         Toast.makeText(getApplicationContext(), "You are now logged in!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

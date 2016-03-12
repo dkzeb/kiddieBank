@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Kiddie Bank</string>
+
+
+    <string name="button_label_login">Login</string>
+    <string name="button_label_register">Register</string>
+
+    <string name="hint_username">Username/email</string>
+    <string name="hint_password">Password</string>
+
+    <string name="text_register_now">Don\'t have an account? Register now!</string>
+    <string name="text_already_registered">Already have an account? Login now!</string>
 </resources>

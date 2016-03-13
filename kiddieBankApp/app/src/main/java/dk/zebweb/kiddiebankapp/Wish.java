@@ -14,6 +14,10 @@ public class Wish {
     private int balance;
     private String starColor;
 
+    public Wish(){
+
+    }
+
     public Wish(String id, String name, String image, int price, int balance, String starColor){
         this.id = id;
         this.name = name;

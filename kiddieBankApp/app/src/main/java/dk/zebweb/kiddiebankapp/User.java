@@ -9,6 +9,10 @@ public class User {
     private String name;
     private int bankAccount;
 
+    public User(){
+
+    }
+
     public User(String id, String name, int bankAccount) {
         this.id = id;
         this.name = name;

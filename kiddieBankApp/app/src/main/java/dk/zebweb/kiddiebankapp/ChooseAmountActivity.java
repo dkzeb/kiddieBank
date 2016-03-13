@@ -17,6 +17,7 @@ public class ChooseAmountActivity extends AppCompatActivity {
     private Button returnButton;
 
     private String child_id;
+    private String child_name;
     private String item_id;
 
     @Override
@@ -26,6 +27,7 @@ public class ChooseAmountActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         child_id = intent.getStringExtra(AppConstants.CHILD_ID);
+        child_name = intent.getStringExtra(AppConstants.CHILD_NAME);
         item_id = intent.getStringExtra(AppConstants.ITEM_ID);
 
 

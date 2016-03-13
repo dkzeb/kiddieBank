@@ -51,17 +51,21 @@ public class CreateWishActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "A new item should be create");
-                Firebase ref = new Firebase(getResources().getString(R.string.firebase_url)).child("users").child(sessionManager.getUid()).child("wishes");
-                ref.setValue(new Wish(
+                Log.d(TAG, "A new item is now created");
+                Firebase ref = new Firebase(getResources().getString(R.string.firebase_url)).child("wishes").child(sessionManager.getUid());
+                ref.push().setValue(new Wish(
                         UUID.randomUUID().toString(),
                         name.getText().toString(),
                         image.getText().toString(),
                         Integer.parseInt(price.getText().toString()),
                         Integer.parseInt(balance.getText().toString()),
                         color.getSelectedItem().toString()
-
                 ));
+
+                image.setText("");
+                name.setText("");
+                price.setText("");
+                balance.setText("");
             }
         };
     }

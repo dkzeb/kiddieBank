@@ -52,6 +52,6 @@
         android:id="@+id/wishButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp" />
+        android:layout_marginTop="400dp" />
 
 </RelativeLayout>

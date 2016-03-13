@@ -12,11 +12,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.cengalabs.flatui.FlatUI;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.support.v7.app.NotificationCompat.*;
 
@@ -44,8 +55,36 @@ public class MainActivity extends AppCompatActivity {
         barnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), youGotMoney.class);
-                startActivity(i);
+                Log.d(TAG, "Sending some request");
+                String url = "https://api.particle.io/v1/devices/4b0033000c51343334363138/add?access_token=fa2405080d01b918e0574a0f23a0b06c64332305&add=t";
+
+                StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d(TAG, response);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                error.printStackTrace();
+                            }
+                        }
+                ) {
+                    @Override
+                    protected Map<String, String> getParams()
+                    {
+                        Map<String, String>  params = new HashMap<>();
+                        // the POST parameters:
+                        params.put("add", "2");
+                        return params;
+                    }
+                };
+                Volley.newRequestQueue(getApplicationContext()).add(postRequest);
+
+                //Intent i = new Intent(getApplicationContext(), youGotMoney.class);
+                //startActivity(i);
                 //finish(); Så virker tilbage ikke ;)
             }
         });

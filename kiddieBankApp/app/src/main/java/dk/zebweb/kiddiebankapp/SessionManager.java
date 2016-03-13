@@ -16,6 +16,7 @@ public class SessionManager {
     private static final String KEY_TOKEN= "token";
     private static final String KEY_UID = "uid";
     private static final String KEY_PROVIDER = "provider";
+    private static final String KEY_NAME = "name";
     private static final int PRIVATE_MODE = 0;
 
     //Fields
@@ -27,11 +28,11 @@ public class SessionManager {
     public SessionManager(Context context){
         this.context = context;
         preferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-        editor = preferences.edit();
     }
 
 
     public void setLoginDetails(String token, String uid, String provider){
+        editor = preferences.edit();
         editor.putString(KEY_TOKEN, token);
         editor.putString(KEY_UID, uid);
         editor.putString(KEY_PROVIDER, provider);
@@ -40,7 +41,14 @@ public class SessionManager {
         Log.d(TAG, "User login session modified. Token updated");
     }
 
+    public void setUserName(String name){
+        editor = preferences.edit();
+        editor.putString(KEY_NAME, name);
+        editor.commit();
+    }
+
     public void removeLoginDetails(){
+        editor = preferences.edit();
         editor.putString(KEY_TOKEN, "");
         editor.putString(KEY_UID, "");
         editor.putBoolean(KEY_IS_LOGGEDIN, false);
@@ -62,6 +70,10 @@ public class SessionManager {
 
     public boolean isLoggedIn(){
         return preferences.getBoolean(KEY_IS_LOGGEDIN, false);
+    }
+
+    public String getName(){
+        return preferences.getString(KEY_NAME, "");
     }
 
 }

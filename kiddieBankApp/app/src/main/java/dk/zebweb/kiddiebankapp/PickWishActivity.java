@@ -77,11 +77,13 @@ public class PickWishActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Toast.makeText(getApplicationContext(), "" + position, Toast.LENGTH_SHORT).show();
                 Wish wish = (Wish) pickWishListAdapter.getItem(position);
-                String item_id = wish.getId();
                 Intent intent = new Intent(getApplicationContext(), ChooseAmountActivity.class);
                 intent.putExtra(AppConstants.CHILD_ID, child_id);
                 intent.putExtra(AppConstants.CHILD_NAME, child_name);
-                intent.putExtra(AppConstants.ITEM_ID, item_id);
+                intent.putExtra(AppConstants.ITEM_ID, wish.getId());
+                intent.putExtra(AppConstants.ITEM_NAME, wish.getName());
+                intent.putExtra(AppConstants.ITEM_PRICE, wish.getPrice());
+                intent.putExtra(AppConstants.ITEM_BALANCE, wish.getBalance());
                 startActivity(intent);
             }
         });

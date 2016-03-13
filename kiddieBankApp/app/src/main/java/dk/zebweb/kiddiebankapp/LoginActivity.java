@@ -12,8 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -70,6 +72,19 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG, "Logged in successful");
                         sessionManager.setLoginDetails(authData.getToken(), authData.getUid(), authData.getProvider());
                         Toast.makeText(getApplicationContext(), "You are now logged in!", Toast.LENGTH_SHORT).show();
+
+                        ref.child("users").child(sessionManager.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+                                sessionManager.setUserName(user.getName());
+                            }
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {}
+                        });
+
+
+
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }

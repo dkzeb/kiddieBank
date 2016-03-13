@@ -26,7 +26,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="0 kr."
         android:id="@+id/minVal"
-        android:layout_below="@+id/moneyBar"
+        android:layout_below="@+id/depositBar"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -38,18 +38,35 @@
         android:layout_alignTop="@+id/minVal"
         android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/designate_wishimage"
-        android:src="@drawable/bike"
-        android:layout_below="@+id/minVal"
-        android:layout_alignParentStart="true" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:clickable="false">
 
-    <Button
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="@android:style/Widget.ProgressBar.Small.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+            android:padding="30dp"
+            android:clickable="false"/>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/designate_wishimage"
+            android:src="@drawable/bike"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <com.cengalabs.flatui.views.FlatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="OK"
         android:id="@+id/putMoneyBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

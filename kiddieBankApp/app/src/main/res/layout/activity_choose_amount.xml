@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
-                android:text="Vælg hvor mange penge:"/>
+                android:text="Hvor mange penge vil du støtte med?"
+                android:id="@+id/" />
         </FrameLayout>
 
         <FrameLayout
@@ -48,14 +49,6 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5">
-
-    </FrameLayout>
-
-
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -66,7 +59,7 @@
             android:id="@+id/activity_choose_amount_confirm_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal|bottom"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="15dp"

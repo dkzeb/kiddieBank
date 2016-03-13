@@ -46,13 +46,14 @@
         android:layout_alignParentStart="true">
 
 
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:layout_marginLeft="50dp"
+        <com.github.lzyzsd.circleprogress.DonutProgress
             android:id="@+id/arc_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:arc_progress="30"
-
+            android:layout_marginLeft="75dp"
+            android:layout_width="600dp"
+            android:layout_height="600dp"
+            custom:donut_progress="30"
+            custom:donut_unfinished_color="#FFFFFF"
+            custom:donut_finished_color="#F00F"
             android:layout_alignParentStart="true" />
 
         <ImageView
@@ -61,7 +62,7 @@
             android:id="@+id/designate_wishimage"
             android:src="@drawable/bike"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="100dp"/>
     </RelativeLayout>
 
 
@@ -72,6 +73,16 @@
         android:text="OK"
         android:id="@+id/putMoneyBtn"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="200/1000 kr."
+        android:id="@+id/moneyTxt"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 

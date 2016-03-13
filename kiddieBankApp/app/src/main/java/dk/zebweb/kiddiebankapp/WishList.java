@@ -32,8 +32,6 @@ public class WishList extends AppCompatActivity {
         progress.setTitle("Henter ønsker");
         progress.setMessage("Vent venligst...");
         progress.show();
-// To dismiss the dialog
-
 
         SharedPreferences prefs = getSharedPreferences("kiddiebank", 0);
         String child_id = prefs.getString("uid", null);//
@@ -76,9 +74,15 @@ public class WishList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Wish w = (Wish) gridview.getItemAtPosition(position);
+
+                Gift free = (Gift) getIntent().getSerializableExtra(AppConstants.GIFT_OBJECT);
+                System.out.println("GIFT: "+free);
+
                 System.out.println("Wish ID: "+w.getId());
                 Intent i = new Intent(getApplicationContext(), DesignateMoney.class);
                 //i.putExtra("wishID", w.getId());
+                i.putExtra("gift", free);
+
                 i.putExtra("wish", w);
                 startActivity(i);
             }

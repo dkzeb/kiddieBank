@@ -5,10 +5,12 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         FlatUI.initDefaultValues(this);
         FlatUI.setDefaultTheme(FlatUI.BLOOD);
         getSupportActionBar().setBackgroundDrawable(FlatUI.getActionBarDrawable(this, FlatUI.BLOOD, false));
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflator.inflate(R.layout.menu_layout, null);
+
+        actionBar.setCustomView(v);
 
         Button barnBtn = (Button) findViewById(R.id.barnButton);
         barnBtn.setOnClickListener(new View.OnClickListener() {

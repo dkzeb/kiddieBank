@@ -7,40 +7,43 @@ import android.graphics.drawable.Drawable;
  */
 public class Wish {
 
-    private int id;
-    private int image;
+    private String id;
+    private String image;
     private String name;
     private int price;
     private int balance;
     private String starColor;
 
-    public Wish(String name, int image, int price, int balance){
+    public Wish(String id, String name, String image, int price, int balance, String starColor){
+        this.id = id;
         this.name = name;
         this.image = image;
         this.price = price;
         this.balance = balance;
+        this.starColor = starColor;
     }
 
-    public Drawable getImage(){
-        return Drawable.createFromPath("drawable://"+image);
+    public String getId() {
+        return id;
     }
 
-    public int getImageID(){
+    public String getImage() {
         return image;
     }
 
-    public String getName(){ return this.name; }
-
-    public void addMoney(int amt){
-        balance += amt;
+    public String getName() {
+        return name;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return price;
     }
 
-    public int getBalance(){
+    public int getBalance() {
         return balance;
     }
 
+    public String getStarColor() {
+        return starColor;
+    }
 }

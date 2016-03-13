@@ -61,7 +61,7 @@ public class WishListAdapter extends BaseAdapter {
             imageView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 500));
             gridView.setPadding(8, 8, 8, 8);
             //imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setImageResource(mWishs[position].getImageID());
+            //imageView.setImageResource(mWishs[position].getImageID());
         } else {
             gridView = (View) convertView;
         }
@@ -73,13 +73,13 @@ public class WishListAdapter extends BaseAdapter {
 
     // references to our images
     private Wish[] mWishs = {
-            new Wish("Cykel", R.drawable.bike, 2500, 1380),
+            /*new Wish("Cykel", R.drawable.bike, 2500, 1380),
             new Wish("Rayman PS4 Spil", R.drawable.rayman, 400, 105),
             new Wish("Harry Potter Bog", R.drawable.harry_p, 150, 15),
             new Wish("Løbehjul", R.drawable.loebehjul, 799, 600),
             new Wish("Cykel", R.drawable.bike, 2500, 1380),
             new Wish("Rayman PS4 Spil", R.drawable.rayman, 400, 105),
             new Wish("Harry Potter Bog", R.drawable.harry_p, 150, 15),
-            new Wish("Løbehjul", R.drawable.loebehjul, 799, 600)
+            new Wish("Løbehjul", R.drawable.loebehjul, 799, 600)*/
     };
 }

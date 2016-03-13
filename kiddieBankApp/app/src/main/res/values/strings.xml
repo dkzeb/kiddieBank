@@ -11,4 +11,13 @@
 
     <string name="text_register_now">Don\'t have an account? Register now!</string>
     <string name="text_already_registered">Already have an account? Login now!</string>
+
+
+    <string-array name="color_array">
+        <item>None</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Green</item>
+    </string-array>
 </resources>

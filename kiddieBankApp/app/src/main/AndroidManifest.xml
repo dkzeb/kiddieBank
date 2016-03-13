@@ -33,8 +33,34 @@
                 android:value=".LoginActivity" />
         </activity>
         <activity android:name=".TransferMoneyActivity" />
-        <activity android:name=".ChooseAmountActivity" />
-        <activity android:name=".ConfirmActivity"></activity>
+        <activity
+            android:name=".PickWishActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".TransferMoneyActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TransferMoneyActivity" />
+        </activity>
+        <activity
+            android:name=".ChooseAmountActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".PickWishActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PickWishActivity" />
+        </activity>
+        <activity
+            android:name=".ConfirmActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ChooseAmountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseAmountActivity" />
+        </activity>
+        <activity android:name=".CreateWishActivity"></activity>
     </application>
 
 </manifest>

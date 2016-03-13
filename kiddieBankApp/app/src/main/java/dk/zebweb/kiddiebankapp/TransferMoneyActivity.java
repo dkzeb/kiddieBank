@@ -33,7 +33,7 @@ public class TransferMoneyActivity extends AppCompatActivity {
                 Toast.makeText(TransferMoneyActivity.this, "" + position, Toast.LENGTH_SHORT).show();
                 //TODO: get child id
                 String child_id = "";
-                Intent intent = new Intent(getApplicationContext(), ChooseAmountActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PickWishActivity.class);
                 intent.putExtra(AppConstants.CHILD_ID, child_id);
                 startActivity(intent);
             }

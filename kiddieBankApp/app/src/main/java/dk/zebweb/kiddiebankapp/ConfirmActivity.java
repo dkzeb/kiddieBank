@@ -65,7 +65,6 @@ public class ConfirmActivity extends AppCompatActivity {
 
         confirmText.setText("Du har overført " + amount + " kr., så " + child_name + " snart kan få en ny " + item_name);
         confirmButton.setOnClickListener(confirmListener());
-
     }
 
 

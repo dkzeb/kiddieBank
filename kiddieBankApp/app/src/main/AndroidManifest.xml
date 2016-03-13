@@ -60,7 +60,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ChooseAmountActivity" />
         </activity>
-        <activity android:name=".CreateWishActivity"></activity>
+        <activity android:name=".CreateWishActivity" />
+        <activity android:name=".DesignateMoney"></activity>
     </application>
 
 </manifest>

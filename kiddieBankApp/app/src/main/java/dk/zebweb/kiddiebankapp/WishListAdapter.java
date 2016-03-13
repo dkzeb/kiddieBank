@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by zeb on 12-03-16.
@@ -28,8 +37,8 @@ public class WishListAdapter extends BaseAdapter {
         return mWishs.length;
     }
 
-    public Object getItem(int position) {
-        return null;
+    public Wish getItem(int position) {
+        return mWishs[position];
     }
 
     public long getItemId(int position) {

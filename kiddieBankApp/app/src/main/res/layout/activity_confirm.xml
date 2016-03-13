@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_gravity="center"
-            android:text="Du har overført x penge til y."/>
+            android:text="Du har overført  500 kr til Thomas."/>
 
     </FrameLayout>
 

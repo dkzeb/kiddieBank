@@ -28,9 +28,11 @@ import java.util.ArrayList;
  */
 public class WishListAdapter extends BaseAdapter {
     private Context mContext;
+    private Wish[] mWishs;
 
-    public WishListAdapter(Context c) {
+    public WishListAdapter(Context c, Wish[] w) {
         mContext = c;
+        mWishs = w;
     }
 
     public int getCount() {
@@ -66,7 +68,7 @@ public class WishListAdapter extends BaseAdapter {
             // set image based on selected text
             ImageView imageView = (ImageView) gridView
                     .findViewById(R.id.wishImage);
-
+            
             TextView wishName = (TextView) gridView.findViewById(R.id.wishName);
             wishName.setText(mWishs[position].getName());
             imageView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 500));
@@ -80,17 +82,4 @@ public class WishListAdapter extends BaseAdapter {
 
     }
 
-    //Wish bike = new Wish("Cykel", "drawable://"+R.drawable.bike);
-
-    // references to our images
-    private Wish[] mWishs = {
-            new Wish("1", "Cykel", "bike", 2500, 1380, "none"),
-            new Wish("2", "Rayman PS4 Spil", "rayman", 400, 105, "none"),
-            new Wish("3", "Harry Potter Bog", "harry_p", 150, 15, "none"),
-            new Wish("4", "Løbehjul", "loebehjul", 799, 600, "none"),
-            new Wish("5", "Cykel", "bike", 2500, 1380, "none"),
-            new Wish("6", "Rayman PS4 Spil", "rayman", 400, 105, "none"),
-            new Wish("7", "Harry Potter Bog", "harry_p", 150, 15, "none"),
-            new Wish("8", "Løbehjul", "loebehjul", 799, 600, "none")
-    };
 }

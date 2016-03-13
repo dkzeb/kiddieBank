@@ -28,7 +28,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"
                 android:text="Hvor mange penge vil du støtte med?"
-                android:id="@+id/" />
+                android:id="@+id/stoetteTxt" />
         </FrameLayout>
 
         <FrameLayout

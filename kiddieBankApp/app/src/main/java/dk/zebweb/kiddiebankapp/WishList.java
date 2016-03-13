@@ -22,6 +22,11 @@ public class WishList extends AppCompatActivity {
                                     int position, long id) {
                 Toast.makeText(WishList.this, "" + position,
                         Toast.LENGTH_SHORT).show();
+
+
+
+
+
             }
         });
 

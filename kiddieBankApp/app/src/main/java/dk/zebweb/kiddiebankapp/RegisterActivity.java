@@ -21,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText passwordVerify;
+    private EditText gender;
     private Button registerButton;
     private TextView loginText;
 
@@ -33,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.register_activity_edit_email);
         password = (EditText) findViewById(R.id.register_activity_edit_password);
         passwordVerify = (EditText) findViewById(R.id.register_activity_edit_password_verify);
+        gender = (EditText) findViewById(R.id.register_activity_edit_gender);
         registerButton = (Button) findViewById(R.id.register_activity_button_register);
         loginText = (TextView) findViewById(R.id.register_activity_text_login);
 
@@ -60,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
                 String passwordVerifyString = passwordVerify.getText().toString();
+                final String genderString = gender.getText().toString();
 
                 if (!passwordString.equals(passwordVerifyString)){
                     Toast.makeText(getApplicationContext(), "Password doesn't match!", Toast.LENGTH_SHORT).show();
@@ -73,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onSuccess(Map<String, Object> result) {
                         Toast.makeText(getApplicationContext(), "Account created!", Toast.LENGTH_SHORT).show();
                         NavUtils.navigateUpFromSameTask(activity);
-                        ref.child("users").child(result.get("uid")+"").setValue(new User(result.get("uid")+"", nameString, (int) (Math.random()*10000)));
+                        ref.child("users").child(result.get("uid")+"").setValue(new User(result.get("uid")+"", nameString, (int) (Math.random()*10000), Integer.parseInt(genderString)));
                     }
 
                     @Override

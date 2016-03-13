@@ -1,6 +1,7 @@
 package dk.zebweb.kiddiebankapp;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +10,41 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 /**
  * Created by Lunding on 13/03/16.
  */
-public class PickWishListAdapter extends BaseAdapter {
+public class KidsListAdapter extends BaseAdapter {
 
-    private final String TAG = PickWishListAdapter.class.getSimpleName();
+    private static final String TAG = KidsListAdapter.class.getSimpleName();
 
-    private LayoutInflater inflater;
     private Context context;
-    private final Wish[] wishes;
+    private LayoutInflater inflater;
+    private ArrayList<User> children;
 
-    public PickWishListAdapter(Context context, Wish[] wishes) {
+    public KidsListAdapter(Context context, ArrayList<User> children){
         this.context = context;
         this.inflater = LayoutInflater.from(context);
-        this.wishes = wishes;
+        this.children = children;
     }
 
+    @Override
+    public int getCount(){
+        return children.size();
+    }
+
+    @Override
+    public Object getItem(int position){
+        return children.get(position);
+    }
+
+    @Override
+    public long getItemId(int position){
+        return position;
+    }
 
     public View getView(int position, View convertView, ViewGroup parent){
         View v = convertView;
@@ -45,38 +64,18 @@ public class PickWishListAdapter extends BaseAdapter {
         name = (TextView) v.getTag(R.id.text);
         value = (TextView) v.getTag(R.id.value);
 
-        Wish wish = (Wish) getItem(position);
-        Log.d(TAG, "Wish to be displayed: " + wish);
-        name.setText(wish.getName());
-        if (!wish.getId().equals("free")){
-            int resourceId = context.getResources().getIdentifier(wishes[position].getImage(), "drawable", context.getPackageName());
-            picture.setImageResource(resourceId);
-            value.setText(wish.getPrice() + " (" + wish.getBalance() + ")");
+        User user = (User) getItem(position);
+        Log.d(TAG, "User to be displayed: " + user);
+        if (user.getGender() == 0){
+            picture.setImageDrawable(this.context.getResources().getDrawable(R.mipmap.avatar_lise));
         } else {
-            picture.setImageDrawable(this.context.getResources().getDrawable(R.drawable.coinstack));
-            value.setText("");
+            picture.setImageDrawable(this.context.getResources().getDrawable(R.mipmap.avatar_peter));
         }
 
-
-
-
+        name.setText(user.getName());
+        value.setText("");
 
         return v;
-    }
-
-    @Override
-    public int getCount() {
-        return wishes.length;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return wishes[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
     }
 
 }

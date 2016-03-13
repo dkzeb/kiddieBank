@@ -52,4 +52,17 @@ public class Wish implements Serializable {
     public String getStarColor() {
         return starColor;
     }
+
+
+    @Override
+    public String toString() {
+        return "Wish{" +
+                "id='" + id + '\'' +
+                ", image='" + image + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", balance=" + balance +
+                ", starColor='" + starColor + '\'' +
+                '}';
+    }
 }

@@ -55,6 +55,15 @@ tools:context="dk.zebweb.kiddiebankapp.RegisterActivity">
         android:ems="10"
         android:hint="@string/hint_password" />
 
+    <EditText
+        android:id="@+id/register_activity_edit_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="0 = girl, 1 = boy" />
+
     <Button
         android:id="@+id/register_activity_button_register"
         android:layout_width="match_parent"

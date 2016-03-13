@@ -1,5 +1,6 @@
 package dk.zebweb.kiddiebankapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,11 +24,13 @@ public class TransferMoneyActivity extends AppCompatActivity {
     private static final String TAG = TransferMoneyActivity.class.getSimpleName();
 
     private GridView kidsList;
-    //private KidsAdapter kidsAdapter;
-    private ArrayAdapter<User> kidsAdapter;
+    private KidsListAdapter kidsAdapter;
+    //private ArrayAdapter<User> kidsAdapter;
     private ArrayList<User> children;
 
     private SessionManager sessionManager;
+
+    private ProgressDialog progress;
 
 
     @Override
@@ -35,6 +38,11 @@ public class TransferMoneyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer_money);
         sessionManager = new SessionManager(this);
+
+        progress = new ProgressDialog(this);
+        progress.setTitle("Henter børn");
+        progress.setMessage("Vent venligst...");
+        progress.show();
 
         children = new ArrayList<>();
 
@@ -52,6 +60,7 @@ public class TransferMoneyActivity extends AppCompatActivity {
                     children.add(user);
                 }
                 populateChildrenListView();
+                progress.dismiss();
             }
 
             @Override
@@ -63,14 +72,15 @@ public class TransferMoneyActivity extends AppCompatActivity {
     }
 
     private void populateChildrenListView(){
-        kidsAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, children);
+        //kidsAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_2, children);
+        kidsAdapter = new KidsListAdapter(getApplicationContext(), children);
 
         kidsList.setAdapter(kidsAdapter);
         kidsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(TransferMoneyActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-                User child = kidsAdapter.getItem(position);
+                User child = (User) kidsAdapter.getItem(position);
                 String child_id = child.getId();
                 String child_name = child.getName();
                 Intent intent = new Intent(getApplicationContext(), PickWishActivity.class);

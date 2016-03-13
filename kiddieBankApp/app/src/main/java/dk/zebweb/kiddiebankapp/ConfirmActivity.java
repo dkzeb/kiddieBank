@@ -53,8 +53,11 @@ public class ConfirmActivity extends AppCompatActivity {
 
         ref = new Firebase(getResources().getString(R.string.firebase_url));
 
-        if(!child_id.equals("free")){
+        if(!item_id.equals("free")){
             ref.child("wishes").child(child_id).child(item_id).child("balance").setValue(item_balance + amount);
+            confirmText.setText("Du har overført " + amount + " kr., så " + child_name + " snart kan få en ny " + item_name);
+        } else {
+            confirmText.setText("Du har overført " + amount + " kr., så " + child_name + " snart kan få nogle af sine ønsker opfyldt");
         }
 
 
@@ -63,7 +66,7 @@ public class ConfirmActivity extends AppCompatActivity {
         //TODO: Send some request to hardware.
 
 
-        confirmText.setText("Du har overført " + amount + " kr., så " + child_name + " snart kan få en ny " + item_name);
+
         confirmButton.setOnClickListener(confirmListener());
     }
 

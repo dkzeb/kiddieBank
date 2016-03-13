@@ -1,5 +1,6 @@
 package dk.zebweb.kiddiebankapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,10 +29,17 @@ public class PickWishActivity extends AppCompatActivity {
 
     private Wish wishes[];
 
+    private ProgressDialog progress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_wish);
+
+        progress = new ProgressDialog(this);
+        progress.setTitle("Henter ønsker");
+        progress.setMessage("Vent venligst...");
+        progress.show();
 
         Intent intent = getIntent();
         child_id = intent.getStringExtra(AppConstants.CHILD_ID);
@@ -47,7 +55,7 @@ public class PickWishActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG, dataSnapshot.toString());
                 ArrayList<Wish> wishList = new ArrayList<>();
-                wishList.add(new Wish("free", "free", "free", 0, 0, "free"));
+                wishList.add(new Wish("free", "Vælg selv", "free", 0, 0, "free"));
                 for (DataSnapshot wishSnapshot : dataSnapshot.getChildren()) {
                     Log.d(TAG, wishSnapshot.toString());
                     Wish wish = wishSnapshot.getValue(Wish.class);
@@ -56,6 +64,7 @@ public class PickWishActivity extends AppCompatActivity {
                 }
                 wishes = wishList.toArray(new Wish[wishList.size()]);
                 populateWishListView();
+                progress.dismiss();
             }
 
             @Override

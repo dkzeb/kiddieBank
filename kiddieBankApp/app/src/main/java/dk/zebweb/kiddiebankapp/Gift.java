@@ -1,9 +1,11 @@
 package dk.zebweb.kiddiebankapp;
 
+import java.io.Serializable;
+
 /**
  * Created by Lunding on 13/03/16.
  */
-public class Gift {
+public class Gift implements Serializable{
 
     private String id;
     private int amount;

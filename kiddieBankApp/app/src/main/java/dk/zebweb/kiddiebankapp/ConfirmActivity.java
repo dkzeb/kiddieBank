@@ -45,7 +45,7 @@ public class ConfirmActivity extends AppCompatActivity {
         item_name = intent.getStringExtra(AppConstants.ITEM_NAME);
         item_price = intent.getIntExtra(AppConstants.ITEM_PRICE, 0);
         item_balance = intent.getIntExtra(AppConstants.ITEM_BALANCE, 0);
-        int amount = intent.getIntExtra(AppConstants.AMOUNT, 0);
+        amount = intent.getIntExtra(AppConstants.AMOUNT, 0);
 
 
         confirmText = (TextView) findViewById(R.id.activity_confirm_text);

@@ -12,4 +12,15 @@ public class AppConstants {
     public static final String ITEM_PRICE = "item_price";
     public static final String ITEM_BALANCE = "item_balance";
     public static final String AMOUNT = "amount";
+    public static final String GIFT_OBJECT = "gift_object";
+
+
+
+    public static int getNotififyID(String id){
+        int hash = 7;
+        for (int i = 0; i < id.length(); i++) {
+            hash = hash*31 + id.charAt(i);
+        }
+        return hash;
+    }
 }

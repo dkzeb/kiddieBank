@@ -83,8 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                             public void onCancelled(FirebaseError firebaseError) {}
                         });
 
-
-
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }

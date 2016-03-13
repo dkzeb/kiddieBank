@@ -3,6 +3,7 @@
     package="dk.zebweb.kiddiebankapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".KiddieBankApplication"
@@ -72,6 +73,8 @@
         </activity>
 
         <activity android:name=".DesignateMoney"></activity>
+
+
     </application>
 
 </manifest>

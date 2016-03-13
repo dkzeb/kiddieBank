@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/kids_list"
             android:stretchMode="columnWidth"
-            android:numColumns="2" />
+            android:numColumns="3" />
 
     </FrameLayout>
 

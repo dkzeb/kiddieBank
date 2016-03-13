@@ -11,6 +11,8 @@ import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 
+import com.cengalabs.flatui.FlatUI;
+
 import static android.support.v7.app.NotificationCompat.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // FlatUI
+        FlatUI.initDefaultValues(this);
+        FlatUI.setDefaultTheme(FlatUI.BLOOD);
+        getSupportActionBar().setBackgroundDrawable(FlatUI.getActionBarDrawable(this, FlatUI.BLOOD, false));
 
         Button barnBtn = (Button) findViewById(R.id.barnButton);
         barnBtn.setOnClickListener(new View.OnClickListener() {

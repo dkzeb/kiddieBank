@@ -19,6 +19,9 @@ public class ChooseAmountActivity extends AppCompatActivity {
     private String child_id;
     private String child_name;
     private String item_id;
+    private String item_name;
+    private int item_price;
+    private int item_balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,9 @@ public class ChooseAmountActivity extends AppCompatActivity {
         child_id = intent.getStringExtra(AppConstants.CHILD_ID);
         child_name = intent.getStringExtra(AppConstants.CHILD_NAME);
         item_id = intent.getStringExtra(AppConstants.ITEM_ID);
-
+        item_name = intent.getStringExtra(AppConstants.ITEM_NAME);
+        item_price = intent.getIntExtra(AppConstants.ITEM_PRICE, 0);
+        item_balance = intent.getIntExtra(AppConstants.ITEM_BALANCE, 0);
 
         amountField = (EditText) findViewById(R.id.activity_choose_amount_amount);
         confirmButton = (Button) findViewById(R.id.activity_choose_amount_confirm_button);
@@ -47,7 +52,11 @@ public class ChooseAmountActivity extends AppCompatActivity {
                 Log.d(TAG, "An amount of " + amountField.getText() + ", was picked.");
                 Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
                 intent.putExtra(AppConstants.CHILD_ID, child_id);
+                intent.putExtra(AppConstants.CHILD_NAME, child_name);
                 intent.putExtra(AppConstants.ITEM_ID, item_id);
+                intent.putExtra(AppConstants.ITEM_NAME, item_name);
+                intent.putExtra(AppConstants.ITEM_PRICE, item_price);
+                intent.putExtra(AppConstants.ITEM_BALANCE, item_balance);
                 intent.putExtra(AppConstants.AMOUNT, Integer.parseInt(amountField.getText().toString()));
                 startActivity(intent);
             }

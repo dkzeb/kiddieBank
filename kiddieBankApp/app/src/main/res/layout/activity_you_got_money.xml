@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,40 +10,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dk.zebweb.kiddiebankapp.youGotMoney">
 
-    <TextView
+    <com.cengalabs.flatui.views.FlatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Du har fået penge!"
-        android:id="@+id/uGotMoneyTxt"
-        android:layout_marginTop="46dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="75dp"
+        android:textSize="50dp"
         android:text="1000 kr"
         android:id="@+id/moneyValTxt"
-        android:layout_below="@+id/uGotMoneyTxt"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="italic"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/nxtBtn" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Næste"
+    <com.cengalabs.flatui.views.FlatButton
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/nxtBtn"
+        android:text=">"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        android:textAlignment="gravity"
+        android:scaleType="fitCenter"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        flatui:fl_touchEffect="fl_ripple"
+        flatui:fl_cornerRadius="50dp"
+        />
 
     <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/coinstack"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_above="@+id/nxtBtn" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/dk1000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&quot;Hej Thomas, brug nu pengene fornuftigt! K.h Mormor&quot;"
+        android:id="@+id/textView3"
         android:layout_below="@+id/moneyValTxt"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

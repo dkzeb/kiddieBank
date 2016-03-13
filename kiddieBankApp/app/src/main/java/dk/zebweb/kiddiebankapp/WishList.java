@@ -1,5 +1,6 @@
 package dk.zebweb.kiddiebankapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,19 +15,18 @@ public class WishList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
 
-        GridView gridview = (GridView) findViewById(R.id.gridView);
+        final GridView gridview = (GridView) findViewById(R.id.gridView);
         gridview.setAdapter(new WishListAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(WishList.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-
-
-
-
-
+                Wish w = (Wish) gridview.getItemAtPosition(position);
+                System.out.println("Wish ID: "+w.getId());
+                Intent i = new Intent(getApplicationContext(), DesignateMoney.class);
+                //i.putExtra("wishID", w.getId());
+                i.putExtra("wish", w);
+                startActivity(i);
             }
         });
 

@@ -2,10 +2,12 @@ package dk.zebweb.kiddiebankapp;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
+
 /**
  * Created by zeb on 12-03-16.
  */
-public class Wish {
+public class Wish implements Serializable {
 
     private String id;
     private String image;

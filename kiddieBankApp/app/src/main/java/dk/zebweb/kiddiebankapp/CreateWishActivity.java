@@ -53,8 +53,9 @@ public class CreateWishActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "A new item is now created");
                 Firebase ref = new Firebase(getResources().getString(R.string.firebase_url)).child("wishes").child(sessionManager.getUid());
-                ref.push().setValue(new Wish(
-                        UUID.randomUUID().toString(),
+                String uuid = UUID.randomUUID().toString();
+                ref.child(uuid).setValue(new Wish(
+                        uuid,
                         name.getText().toString(),
                         image.getText().toString(),
                         Integer.parseInt(price.getText().toString()),

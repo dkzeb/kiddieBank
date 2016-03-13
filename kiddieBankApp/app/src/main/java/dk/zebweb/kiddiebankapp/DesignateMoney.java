@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.cengalabs.flatui.FlatUI;
+import com.github.lzyzsd.circleprogress.ArcProgress;
 
 public class DesignateMoney extends AppCompatActivity {
 
@@ -37,6 +38,11 @@ public class DesignateMoney extends AppCompatActivity {
 
         SeekBar moneyBar = (SeekBar) findViewById(R.id.depositBar);
         moneyBar.setMax(75);
+
+        ArcProgress progressArc = (ArcProgress) findViewById(R.id.arc_progress);
+        progressArc.setProgress(65);
+        progressArc.setBottomText(w.getName());
+        //progressArc.setUnfinishedStrokeColor();
 
         System.out.println(savings+"/"+price);
 
